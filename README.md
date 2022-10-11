@@ -1,1 +1,1 @@
-# ue-participatory-budgeting-use-case-scenario
+# Utility elicitation: Participatory budgeting use case scenario
