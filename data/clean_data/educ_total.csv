@@ -1,0 +1,29 @@
+"","education","ward","count"
+"1","bachelor's","ward_29_educ",6191
+"2","bachelor's","ward_35_educ",9154
+"3","bachelor's","ward_36_educ",5281
+"4","bachelor's","ward_49_educ",13384
+"5","doctorate","ward_29_educ",58
+"6","doctorate","ward_35_educ",208
+"7","doctorate","ward_36_educ",311
+"8","doctorate","ward_49_educ",1066
+"9","high school","ward_29_educ",19904
+"10","high school","ward_35_educ",13054
+"11","high school","ward_36_educ",15687
+"12","high school","ward_49_educ",10131
+"13","less than high school","ward_29_educ",11341
+"14","less than high school","ward_35_educ",15447
+"15","less than high school","ward_36_educ",16463
+"16","less than high school","ward_49_educ",8371
+"17","master's","ward_29_educ",3124
+"18","master's","ward_35_educ",2965
+"19","master's","ward_36_educ",1967
+"20","master's","ward_49_educ",6558
+"21","professional school","ward_29_educ",405
+"22","professional school","ward_35_educ",572
+"23","professional school","ward_36_educ",259
+"24","professional school","ward_49_educ",1226
+"25","some college","ward_29_educ",16837
+"26","some college","ward_35_educ",10610
+"27","some college","ward_36_educ",11856
+"28","some college","ward_49_educ",12584

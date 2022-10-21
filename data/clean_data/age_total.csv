@@ -1,0 +1,97 @@
+"","age","ward","sex","count"
+"1","10 to 14 years","ward29","female",1852
+"2","10 to 14 years","ward29","male",1620
+"3","10 to 14 years","ward35","female",1612
+"4","10 to 14 years","ward35","male",1560
+"5","10 to 14 years","ward36","female",1812
+"6","10 to 14 years","ward36","male",1812
+"7","10 to 14 years","ward49","female",1333
+"8","10 to 14 years","ward49","male",1386
+"9","15 to 17 years","ward29","female",1447
+"10","15 to 17 years","ward29","male",1099
+"11","15 to 17 years","ward35","female",936
+"12","15 to 17 years","ward35","male",988
+"13","15 to 17 years","ward36","female",1087
+"14","15 to 17 years","ward36","male",1139
+"15","15 to 17 years","ward49","female",587
+"16","15 to 17 years","ward49","male",640
+"17","18 to 24 years","ward29","female",3009
+"18","18 to 24 years","ward29","male",2314
+"19","18 to 24 years","ward35","female",2704
+"20","18 to 24 years","ward35","male",3329
+"21","18 to 24 years","ward36","female",2381
+"22","18 to 24 years","ward36","male",2692
+"23","18 to 24 years","ward49","female",3946
+"24","18 to 24 years","ward49","male",3146
+"25","25 to 34 years","ward29","female",4571
+"26","25 to 34 years","ward29","male",3240
+"27","25 to 34 years","ward35","female",5149
+"28","25 to 34 years","ward35","male",5773
+"29","25 to 34 years","ward36","female",3883
+"30","25 to 34 years","ward36","male",3831
+"31","25 to 34 years","ward49","female",5065
+"32","25 to 34 years","ward49","male",5492
+"33","35 to 44 years","ward29","female",3877
+"34","35 to 44 years","ward29","male",3182
+"35","35 to 44 years","ward35","female",4005
+"36","35 to 44 years","ward35","male",4369
+"37","35 to 44 years","ward36","female",4090
+"38","35 to 44 years","ward36","male",4245
+"39","35 to 44 years","ward49","female",4106
+"40","35 to 44 years","ward49","male",4586
+"41","45 to 54 years","ward29","female",4455
+"42","45 to 54 years","ward29","male",3761
+"43","45 to 54 years","ward35","female",2808
+"44","45 to 54 years","ward35","male",3329
+"45","45 to 54 years","ward36","female",3158
+"46","45 to 54 years","ward36","male",3106
+"47","45 to 54 years","ward49","female",3519
+"48","45 to 54 years","ward49","male",3573
+"49","5 to 9 years","ward29","female",1909
+"50","5 to 9 years","ward29","male",2083
+"51","5 to 9 years","ward35","female",1872
+"52","5 to 9 years","ward35","male",1664
+"53","5 to 9 years","ward36","female",2123
+"54","5 to 9 years","ward36","male",2019
+"55","5 to 9 years","ward49","female",1333
+"56","5 to 9 years","ward49","male",1440
+"57","55 to 64 years","ward29","female",4282
+"58","55 to 64 years","ward29","male",3587
+"59","55 to 64 years","ward35","female",2028
+"60","55 to 64 years","ward35","male",2132
+"61","55 to 64 years","ward36","female",2537
+"62","55 to 64 years","ward36","male",2796
+"63","55 to 64 years","ward49","female",2773
+"64","55 to 64 years","ward49","male",2719
+"65","65 to 74 years","ward29","female",2430
+"66","65 to 74 years","ward29","male",1967
+"67","65 to 74 years","ward35","female",1300
+"68","65 to 74 years","ward35","male",1092
+"69","65 to 74 years","ward36","female",1760
+"70","65 to 74 years","ward36","male",1243
+"71","65 to 74 years","ward49","female",1493
+"72","65 to 74 years","ward49","male",1226
+"73","75 to 84 years","ward29","female",1504
+"74","75 to 84 years","ward29","male",868
+"75","75 to 84 years","ward35","female",728
+"76","75 to 84 years","ward35","male",624
+"77","75 to 84 years","ward36","female",880
+"78","75 to 84 years","ward36","male",621
+"79","75 to 84 years","ward49","female",693
+"80","75 to 84 years","ward49","male",427
+"81","85 years and over","ward29","female",636
+"82","85 years and over","ward29","male",231
+"83","85 years and over","ward35","female",260
+"84","85 years and over","ward35","male",156
+"85","85 years and over","ward36","female",311
+"86","85 years and over","ward36","male",207
+"87","85 years and over","ward49","female",480
+"88","85 years and over","ward49","male",160
+"89","Under 5 years","ward29","female",2025
+"90","Under 5 years","ward29","male",2083
+"91","Under 5 years","ward35","female",1820
+"92","Under 5 years","ward35","male",1924
+"93","Under 5 years","ward36","female",2071
+"94","Under 5 years","ward36","male",1967
+"95","Under 5 years","ward49","female",1760
+"96","Under 5 years","ward49","male",1600
