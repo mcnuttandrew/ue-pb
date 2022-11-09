@@ -160,3 +160,15 @@ fieldset{
     display: flex;
     flex-direction: column;
   }
+
+.x-label{
+    font-size: 12px;
+}
+
+.y-label{
+    font-size: 12px;
+}
+
+.bars{
+    fill: dodgerblue;
+}
