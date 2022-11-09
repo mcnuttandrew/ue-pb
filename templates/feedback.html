@@ -30,22 +30,22 @@
         <legend>Select a ward to compare with:</legend>
     
         <div>
-          <input type="checkbox" id="ward29" name="ward" value="29">
+          <input class = "t" type="checkbox" id="ward29" name="ward" value="29">
           <label for="">Ward 29</label>
         </div>
     
         <div>
-          <input type="checkbox" id="ward35" name="ward" value="35">
+          <input class = "t" type="checkbox" id="ward35" name="ward" value="35">
           <label for="ward35">Ward 35</label>
         </div>
 
         <div>
-            <input type="checkbox" id="ward36" name="ward" value="36">
+            <input class = "t" type="checkbox" id="ward36" name="ward" value="36">
             <label for="ward36">Ward 36</label>
           </div>
 
           <div>
-            <input type="checkbox" id="ward49" name="ward" value="49" checked>
+            <input class = "t" type="checkbox" id="ward49" name="ward" value="49" checked>
             <label for="ward49">Ward 49</label>
           </div>
     </fieldset>
@@ -56,9 +56,13 @@
             <div id="ward2" class="ward-container"></div>
         </div>
     </div>
+    <div id="map"></div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
     <script src="../../static/js/map.js"></script>
-    <script src="../../static/js/checkbox.js"></script>
+    <script src="../../static/js/feedback.js"></script>
+    <script src="../../static/js/bar-chart.js"></script>
+    <script src="../../static/js/chart-example.js"></script>
 </body>
 </html>
