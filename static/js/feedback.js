@@ -27,6 +27,67 @@ function handleDropdown2 (e){
     updateMap()
 }
 
+// IFI to initialize charts to wards 29 and 35
+(function initialWardData (){
+    d3.json("../../data/wards_data.json").then(data => { 
+    
+        let ward1Data = data["ward_29"]
+        let ward2Data = data["ward_35"]
+        let yMax = 0
+
+        for(var ward in data) {
+                df = data[ward]
+                df.forEach((e) => {
+                    if (e.count > yMax) {
+                        yMax = e.count
+                    }
+                }
+                )
+            }
+
+        let raceChart1 = barChart(); 
+            raceChart1.xVar("race");
+            raceChart1.yVar("count");
+            raceChart1.barClass("bar-chart-1");
+            raceChart1.svgClass("race-chart-1");
+            raceChart1.yMax(yMax);
+        d3.select("#w1c1")
+            .datum(ward1Data)
+            .call(raceChart1);
+        
+        let raceChart2 = barChart(); 
+            raceChart2.xVar("race");
+            raceChart2.yVar("count");
+            raceChart2.barClass("bar-chart-2");
+            raceChart2.svgClass("race-chart-2");
+            raceChart2.yMax(yMax);
+        d3.select("#w2c1")
+            .datum(ward2Data)
+            .call(raceChart2);
+        
+        let incomeChart1 = barChart(); 
+            incomeChart1.xVar("income");
+            incomeChart1.yVar("count");
+            incomeChart1.barClass("bar-chart-1");
+            incomeChart1.svgClass("income-chart-1");
+            incomeChart1.yMax(yMax);
+        d3.select("#w1c2")
+            .datum(ward1Data)
+            .call(incomeChart1);
+        
+        let incomeChart2 = barChart(); 
+            incomeChart2.xVar("income");
+            incomeChart2.yVar("count");
+            incomeChart2.barClass("bar-chart-2");
+            incomeChart2.svgClass("income-chart-2");
+            incomeChart2.yMax(yMax);
+        d3.select("#w2c2")
+            .datum(ward2Data)
+            .call(incomeChart2);
+
+    })
+}) ()
+
 function showWard1Data(wardNumber) {
     d3.json("../../data/wards_data.json").then(data => { 
         let yMax = 0
@@ -60,6 +121,7 @@ function showWard1Data(wardNumber) {
                     }
                     
                     filteredData = data[ward]
+                    // console.log("filtered", filteredData)
                 
                     let raceChart = barChart(); 
                     raceChart.xVar("race");
@@ -73,14 +135,15 @@ function showWard1Data(wardNumber) {
                         .call(raceChart);
                       
                     let incomeChart = barChart(); 
-                    incomeChart.xVar("income");
-                    incomeChart.yVar("count");
-                    incomeChart.barClass("bar-chart-1");
-                    incomeChart.svgClass("income-chart-1");
-                    incomeChart.yMax(yMax);
+                        incomeChart.xVar("income");
+                        incomeChart.yVar("count");
+                        incomeChart.barClass("bar-chart-1");
+                        incomeChart.svgClass("income-chart-1");
+                        incomeChart.yMax(yMax);
                     d3.select("#w1c2")
                         .datum(filteredData)
                         .call(incomeChart);
+                
                     }
             }
          }
@@ -103,7 +166,8 @@ function showWard2Data(wardNumber) {
 
         for(var ward in data) {
                 if (ward.slice(5,7) == wardNumber){
-                    isRaceChartEmpty = document.getElementsByClassName("race-chart-2")
+                
+                    isRaceChartEmpty = document.querySelectorAll(".race-chart-2")
                     isIncomeChartEmpty = document.querySelectorAll(".income-chart-2")
 
                     if (isRaceChartEmpty.length != 0) {
@@ -121,21 +185,21 @@ function showWard2Data(wardNumber) {
                     filteredData = data[ward]
 
                     let raceChart = barChart(); 
-                    raceChart.xVar("race");
-                    raceChart.yVar("count");
-                    raceChart.barClass("bar-chart-2");
-                    raceChart.svgClass("race-chart-2");
-                    raceChart.yMax(yMax);
+                        raceChart.xVar("race");
+                        raceChart.yVar("count");
+                        raceChart.barClass("bar-chart-2");
+                        raceChart.svgClass("race-chart-2");
+                        raceChart.yMax(yMax);
                     d3.select("#w2c1")
                         .datum(filteredData)
                         .call(raceChart);
 
                     let incomeChart = barChart(); 
-                    incomeChart.xVar("income");
-                    incomeChart.yVar("count");
-                    incomeChart.barClass("bar-chart-2");
-                    incomeChart.svgClass("income-chart-2");
-                    incomeChart.yMax(yMax);
+                        incomeChart.xVar("income");
+                        incomeChart.yVar("count");
+                        incomeChart.barClass("bar-chart-2");
+                        incomeChart.svgClass("income-chart-2");
+                        incomeChart.yMax(yMax);
                     d3.select("#w2c2")
                         .datum(filteredData)
                         .call(incomeChart);
