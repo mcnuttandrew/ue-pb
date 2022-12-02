@@ -1,0 +1,181 @@
+{
+    "ward_29": [
+        {"race": "white",
+        "count": 9894},
+
+        {"race": "black",
+        "count": 36857},
+
+        {"race": "asian",
+        "count": 636},
+
+        {"race": "latino",
+        "count": 10010},
+
+        {"race": "other",
+        "count": 463},
+
+        {"income": "<10,000",
+        "count": 7522
+        },
+
+        {"income": "10,000-24,999",
+        "count": 12729
+        },
+
+        {"income": "25,000-39,999",
+        "count": 10993
+        },
+
+        {"income": "40,000-59,999",
+        "count": 8679
+        },
+
+        {"income": "60,000-99,999",
+        "count": 9836
+        },
+
+        {"income": "100,000-149,999",
+        "count": 5786
+        },
+
+        {"income": ">150,000",
+        "count": 2314
+        }
+   ],
+   "ward_35": [
+    {"race": "white",
+    "count": 11182},
+
+    {"race": "black",
+    "count": 1872},
+
+    {"race": "asian",
+    "count": 2913},
+
+    {"race": "latino",
+    "count": 35314},
+
+    {"race": "other",
+    "count": 728},
+
+    {"income": "<10,000",
+    "count": 4161
+    },
+
+    {"income": "10,000-24,999",
+    "count": 9882
+    },
+
+    {"income": "25,000-39,999",
+    "count": 9362
+    },
+
+    {"income": "40,000-59,999",
+    "count": 9362
+    },
+
+    {"income": "60,000-99,999",
+    "count": 10922
+    },
+
+    {"income": "100,000-149,999",
+    "count": 5721
+    },
+
+    {"income": ">150,000",
+    "count": 3121
+    }
+],
+   "ward_36": [
+    {"race": "white",
+    "count": 12995},
+
+    {"race": "black",
+    "count": 1605},
+
+    {"race": "asian",
+    "count": 1294},
+
+    {"race": "latino",
+    "count": 35463},
+
+    {"race": "other",
+    "count": 414},
+
+    {"income": "<10,000",
+    "count": 3106
+    },
+
+    {"income": "10,000-24,999",
+    "count": 8801
+    },
+
+    {"income": "25,000-39,999",
+    "count": 10354
+    },
+
+    {"income": "40,000-59,999",
+    "count": 10354
+    },
+
+    {"income": "60,000-99,999",
+    "count": 10354
+    },
+
+    {"income": "100,000-149,999",
+    "count": 6213
+    },
+
+    {"income": ">150,000",
+    "count": 2589
+    }
+
+    
+]
+,
+   "ward_49": [
+    {"race": "white",
+    "count": 21968},
+
+    {"race": "black",
+    "count": 13277},
+
+    {"race": "asian",
+    "count": 3892},
+
+    {"race": "latino",
+    "count": 12477},
+
+    {"race": "other",
+    "count": 1706},
+
+    {"income": "<10,000",
+    "count": 6932
+    },
+
+    {"income": "10,000-24,999",
+    "count": 11731
+    },
+
+    {"income": "25,000-39,999",
+    "count": 9598
+    },
+
+    {"income": "40,000-59,999",
+    "count": 8531
+    },
+
+    {"income": "60,000-99,999",
+    "count": 9598
+    },
+
+    {"income": "100,000-149,999",
+    "count": 4266
+    },
+
+    {"income": ">150,000",
+    "count": 2666
+    }
+]
+ }
