@@ -30,11 +30,12 @@ $(document).ready(function () {
 
 //Temporary switch and different drag 
 // make this a callback for toggle input
-function switchDragMode() {
+function switchDragMode(e) {
     // select the input switch and get current value (that was just clicked)
-    let mode = "allocate";  // this should come from input
+    let mode = e.value;  // this should come from input
     // set dragMode for chart component
     pbUtilBars.dragMode(mode)
+    
 }
 
 //updating budget remaining at the top
@@ -45,3 +46,5 @@ function updateBudget() {
         .text("Budget Remaining: $" + budget)
         .style("font-size", "1.5em")
 }
+
+

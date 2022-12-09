@@ -14,15 +14,17 @@ function pbUtilityBars() {
     var div,
         svg,
         chartWrapper,
+        xAxis,
         useData,
         xScale,
         yScale,
-        xBand,
+        band,
         xDomain, 
         drag = d3.drag(),
-        posObj = {}, //populate with the objs Use helper function a POS OBJ
-        dragMode
-        tooltip;
+        posObj = {}, 
+        dragMode, //FOR NOW
+        tooltip,
+        bars;
 
     const svgWidth = 860,
         svgHeight = 460,
@@ -59,9 +61,9 @@ function pbUtilityBars() {
         svg = div.append("svg")
             .attr("width", svgWidth)
             .attr("height", svgHeight)
-        chartWrapper = svg.append("g")
+        chartWrapper = svg.append("g") 
             .attr("id" , "elicitData") // binds #elicitData to the bars
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`)
             .call(drag);
 
         //tooltip/warning init
@@ -71,6 +73,7 @@ function pbUtilityBars() {
 
         // if we need to reshape the input data, do it here and store in a global variable
         setXDomain();
+        console.log(xDomain)
         
         // set up scales and axes once data is ready 
         updateScaleX();
@@ -87,14 +90,14 @@ function pbUtilityBars() {
             .attr("y", (d) => yScale(d.elicit)) 
             .attr("height", (d) => yScale(-0.2) - yScale(d.elicit))
             .attr("width", xScale.bandwidth());
-        bars.text((d) => d.elicit) 
-            .attr("fill", "steelblue")
+        bars.attr("fill", "steelblue")
             .on("mouseover", onMouse) //This might be the issue with grabbbing cursor style
             .on("mouseout", offMouse);
-        svg.append('g')
-            .attr("transform", "translate(0," +  height + ")")
+        xAxis = svg.append('g')
+            .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
             .call(d3.axisBottom(xScale));
         svg.append('g')
+            .attr("transform", `translate(${margin.left}, ${margin.top})`)
             .call(d3.axisLeft(yScale));
 
         //Establishing current position for the posObj (requires domain and scales)
@@ -105,7 +108,7 @@ function pbUtilityBars() {
     }
     
     // this code will re-run each time the chart changes in response to user interactions
-    chart.render = function() {
+    chart.render = function() { 
         // defer rendering until elements from init created
         var domRendered = $.Deferred();
 
@@ -114,6 +117,29 @@ function pbUtilityBars() {
             // D3 code to update the chart
             // here you want the code that will update the chart during drag events
 
+            //update xScale
+            // updateScaleX()
+            xAxis.transition()
+                .call(d3.axisBottom(xScale))
+
+            d3.select("#elicitData")
+                .selectAll("rect")
+                //.data(data)
+                //.join("rect") //Allows for replacement/real time changes
+                .attr("x", (d) => xScale(d.Thing)) // doesnt this need to be updating?
+                .attr("y", (d) => yScale(d.elicit))
+                .attr("height", (d) => yScale(-0.2) - yScale(d.elicit)) 
+                .attr("width", xScale.bandwidth());
+
+             // Updates budget Remaining
+            d3.select("#budget")
+                .data(getRemaining())
+                .join("text")
+                .text((d) => `Budget Remaining: $` + d )
+                .style("font-size", "1.5em") 
+
+
+            
             // may need to bind some event listeners to DOM elements here
             setDragEvents();
             
@@ -131,13 +157,13 @@ function pbUtilityBars() {
 
     function updateScaleX() {
         xScale = d3.scaleBand()
-            .domain(xDomain) // This isnt updating???
+            .domain(xDomain) 
             .range([0,width])
             .padding(0.2);
     }
 
     function currentPos() { //begining, 
-        xDomain.forEach((d) => posObj[d] = xScale(d) /*band location*/ );
+        xDomain.forEach((d) => posObj[d] = xScale(d) /*band location*/);
     };
     
     function setDragEvents() {
@@ -151,7 +177,7 @@ function pbUtilityBars() {
                 .on("end", rankEnd);
         }
     }
-
+    
     // Drag Functionality // adapted from https://observablehq.com/@d3/circle-dragging-i and https://observablehq.com/@duitel/you-draw-it-bar-chart
     function clamp(a,b,c) { return Math.max(a, (Math.min(b, c))) }; //This clamp function is used to find the elicited value and assure it is in between bounds
 
@@ -164,7 +190,7 @@ function pbUtilityBars() {
 
     function elicitArray() { //grabs the elicit array value
         var arr = []
-        for (let i in [0,1,2,3]) { //Change this to Ranked Data /////////////////////
+        for (let i in [0,1,2,3]) { 
             arr.push(data[i].elicit)
         }
         return arr
@@ -177,9 +203,11 @@ function pbUtilityBars() {
 
     function dragStart(event, d) {  
         /////CHANGE MOUSE CURSOR in these functions
+        
     };
     //want grabbing 
     function dragging(event, d) { 
+       
     //constants needed to solve for scaled Y value
         let mousePos = d3.pointer(event, this), 
             xBand = clamp(0, data.length, Math.floor(mousePos[0]/xScale.step()))
@@ -205,67 +233,52 @@ function pbUtilityBars() {
             tooltip.html("You have run out of money") //position of warning tooltip, can/will move
                 .data(data)
                 .style("left", width/2 +"px")
-                .style("top",  height/10 +10 +"px"); 
-        } //maybe need an else here
+                .style("top",  svgHeight+10 +"px"); 
 
-
+        }; //maybe need an else here
     /*
-        bars.transition()
-            .attr("y", (d) => yScale(d.elicit))
-            .ease(d3.PolyOut.exponent(3))
-            .duration(500)
+        use a transition
 
     */
-    // Make this a part of chart.render    
-    d3.select("#elicitData")
-        .selectAll("rect")
-        .data(data)
-        .join("rect") //Allows for replacement/real time changes
-        .attr("x", (d) => xScale(d.Thing))
-        .attr("y", (d) => yScale(d.elicit))
-        .attr("height", (d) => yScale(-0.2) - yScale(d.elicit)) 
-        .attr("width", xScale.bandwidth());
-
-    // Updates budget Remaining
-    d3.select("#budget")
-        .data(getRemaining())
-        .join("text")
-        .text((d) => `Budget Remaining: $` + d )
-        .style("font-size", "1.5em") 
+        chart.render()
     };
 
     function dragEnd(event, d) { //Nothing yet, just here as a placeholder
         
     };
-
-    //Ranking drag functions: Look at parallel coordinates example and drag labels.
+    
+    //Ranking drag functions:
     function rankStart(event, d) {
-        let xPos = (d3.pointer(event, this)[0]),
-            band = Math.floor(xPos/xScale.step()); //MAYBE CLAMP FOR THE EDGES
-        posObj[dimension[band]] = xPos 
+        let xPos = (d3.pointer(event, this)[0]);
+        band = Math.floor(xPos/xScale.step()); //MAYBE CLAMP FOR THE EDGES
+        posObj[xDomain[band]] = xPos 
+
+        console.log("start", posObj)
+        console.log(xDomain)
     };
     function dragRank(event, d) {
-        let xPos = (d3.pointer(event, this)[0]) ,
-            band = Math.floor(xPos/xScale.step());
+        let xPos = (d3.pointer(event, this)[0]);
         posObj[xDomain[band]] = xPos;
-        /*
-    
-        bars.transition()
-            .attr("x", dimension)
-            .ease(d3.PolyOut.exponent(3))
-            .duration(500)
-        
-        xAxis.transition()
-
-        */
-
+        xDomain.sort((a,b) => posObj[a] - posObj[b]); 
+        xScale.domain(xDomain); 
+        //console.log(xDomain)
+        chart.render()
     };
     function rankEnd(event, d) {
-        // let xPos = (d3.pointer(event, this)[0])
-        xDomain.sort((a,b) => posObj[a] - posObj[b]) 
-        xScale.domain(xDomain); // updates dimension after drag is over
+        
         currentPos();
+        /*
+        use a transition
+        */
+
+        console.log(xScale.domain())
+        console.log("end", posObj)
+        chart.render()
+        
     };
+
+
+
 
     function onMouse(event, d) {
         d3.select(this).attr("stroke", "black")
@@ -287,6 +300,7 @@ function pbUtilityBars() {
     chart.dragMode = function(_) {
         if (!arguments.length) return dragMode;
         dragMode = _;
+        
         return chart;
     };
 

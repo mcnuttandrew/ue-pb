@@ -256,6 +256,19 @@ h2{
     fill: green;
 }
 
+
+.tooltip {
+position: absolute;
+padding: 5px;
+width: 100px;
+height: 28px;
+pointer-events: none;
+font-size: small;
+color: black;
+background-color: rgba(226, 64, 64, 0.742);
+border-radius: 5px;
+}
+
 /* .color1{
     fill: red;
 } */

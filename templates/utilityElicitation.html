@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/page.css">
+    <link rel="stylesheet" href="/static/css/page.css">
     <title>Participatory Budgeting</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <p id="language">English | Español</p>
@@ -22,14 +28,14 @@
         representative and/or as an attendee  at a neighborhood assembly was entirely voluntary and open to all 49th 
         Ward residents, regardless of citizenship or voter registration.
     </p>
-
+    <p id="budget" style="font-size: 1.5em;">Budget Remaining: $10</p>
     <div id = "utility-elicitation"></div>
 
     <!-- may need to bind the switchDragMode event listener here -->
     <p id="chart-option">
-        <button id="rank" class="mode">Rank</button>
+        <button name = "mode"  id="rank" class="mode" onclick = "switchDragMode(this)" value = "rank">Rank</button>
         <span id ="separator">|</span> 
-        <button id="allocate" class="mode">Allocate</button>
+        <button name = "mode" id="allocate" class="mode" onclick = "switchDragMode(this)" value = "allocate">Allocate</button>
     </p>
     
     <input class="button" type="submit" value="Next" />
@@ -61,5 +67,6 @@
     </p>
     
 </body>
-<!-- <script src="../../static/js/ue.js"></script> -->
+<script src="/static/js/ue-pb-bars.js"></script>
+<script src="/static/js/utility.js"></script>
 </html>
