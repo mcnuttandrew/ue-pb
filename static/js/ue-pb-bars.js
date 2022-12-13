@@ -15,16 +15,17 @@ function pbUtilityBars() {
         svg,
         chartWrapper,
         xAxis,
-        useData,
+        // useData,
         xScale,
         yScale,
         band,
+        refEdge = "center",
         xDomain, 
         drag = d3.drag(),
-        posObj = {}, 
+        posObj = {"left": {}, "right": {}, "center": {}}, 
         dragMode, //FOR NOW
-        tooltip,
-        bars;
+        tooltip;//,
+        // bars;
 
     const svgWidth = 860,
         svgHeight = 460,
@@ -60,7 +61,7 @@ function pbUtilityBars() {
         // Chart & svg setup
         svg = div.append("svg")
             .attr("width", svgWidth)
-            .attr("height", svgHeight)
+            .attr("height", svgHeight);
         chartWrapper = svg.append("g") 
             .attr("id" , "elicitData") // binds #elicitData to the bars
             .attr("transform", `translate(${margin.left}, ${margin.top})`)
@@ -119,13 +120,14 @@ function pbUtilityBars() {
 
             //update xScale
             // updateScaleX()
-            xAxis.transition()
+            xAxis.transition(50)
                 .call(d3.axisBottom(xScale))
 
             d3.select("#elicitData")
                 .selectAll("rect")
                 //.data(data)
                 //.join("rect") //Allows for replacement/real time changes
+                .transition(50)
                 .attr("x", (d) => xScale(d.Thing)) // doesnt this need to be updating?
                 .attr("y", (d) => yScale(d.elicit))
                 .attr("height", (d) => yScale(-0.2) - yScale(d.elicit)) 
@@ -162,9 +164,28 @@ function pbUtilityBars() {
             .padding(0.2);
     }
 
-    function currentPos() { //begining, 
-        xDomain.forEach((d) => posObj[d] = xScale(d) /*band location*/);
+    function currentPos() {
+        // iterate through xDomain computing bin midpoints
+        for (let i = 0; i < xDomain.length; i++) {
+            let item = xDomain[i],
+                leftEdge = xScale(item),
+                rightEdge = leftEdge + xScale.bandwidth(),
+                midpoint = (leftEdge + rightEdge) / 2.0;
+            
+            posObj["left"][item] = leftEdge;
+            posObj["right"][item] = rightEdge;
+            posObj["center"][item] = midpoint;
+        }
     };
+
+    function overwritePos(item, pos) {
+        // overwrite all reference points for the bar we are dragging
+        // effectively giving it a point location in the chartWrapper
+        // rather than reference points for left, right, and center
+        posObj["left"][item] = pos;  
+        posObj["right"][item] = pos; 
+        posObj["center"][item] = pos;
+    }
     
     function setDragEvents() {
         if (dragMode == "allocate") {
@@ -208,7 +229,7 @@ function pbUtilityBars() {
     //want grabbing 
     function dragging(event, d) { 
        
-    //constants needed to solve for scaled Y value
+        //constants needed to solve for scaled Y value
         let mousePos = d3.pointer(event, this), 
             xBand = clamp(0, data.length, Math.floor(mousePos[0]/xScale.step()))
             xVal = data[xBand].Thing, //Finds Name of the band
@@ -251,21 +272,29 @@ function pbUtilityBars() {
     function rankStart(event, d) {
         let xPos = (d3.pointer(event, this)[0]);
         band = Math.floor(xPos/xScale.step()); //MAYBE CLAMP FOR THE EDGES
-        posObj[xDomain[band]] = xPos 
+        overwritePos(xDomain[band], xPos);
 
         console.log("start", posObj)
         console.log(xDomain)
     };
     function dragRank(event, d) {
-        let xPos = (d3.pointer(event, this)[0]);
-        posObj[xDomain[band]] = xPos;
-        xDomain.sort((a,b) => posObj[a] - posObj[b]); 
+        let xPos = (d3.pointer(event, this)[0]),
+            posDiff = xPos - posObj[refEdge][xDomain[band]];
+        refEdge = posDiff > 0.1      // the reference edge is the point on the
+                    ? "left"         // bar we need to make it past before reordering
+                    : posDiff < -0.1
+                        ? "right"
+                        : refEdge;
+        // console.log(refEdge);
+        overwritePos(xDomain[band], xPos);
+        xDomain.sort((a, b) => posObj[refEdge][a] - posObj[refEdge][b]); 
         xScale.domain(xDomain); 
         //console.log(xDomain)
-        chart.render()
+        chart.render();
     };
     function rankEnd(event, d) {
         
+        refEdge = "center";
         currentPos();
         /*
         use a transition
@@ -273,7 +302,7 @@ function pbUtilityBars() {
 
         console.log(xScale.domain())
         console.log("end", posObj)
-        chart.render()
+        chart.render();
         
     };
 
