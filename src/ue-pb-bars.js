@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 /*
  * REUSABLE CHART COMPONENT
  *
@@ -19,17 +21,17 @@ export default function pbUtilityBars() {
     xScale,
     yScale,
     band,
-    refEdge = "center",
+    refEdge = 'center',
     xDomain,
     drag = d3.drag(),
-    posObj = { left: {}, right: {}, center: {} },
+    posObj = {left: {}, right: {}, center: {}},
     dragMode, //FOR NOW
     tooltip; //,
   // bars;
 
   const svgWidth = 860,
     svgHeight = 460,
-    margin = { top: 30, right: 30, bottom: 30, left: 30 },
+    margin = {top: 30, right: 30, bottom: 30, left: 30},
     width = svgWidth - margin.left - margin.right,
     height = svgHeight - margin.top - margin.bottom;
 
@@ -56,19 +58,15 @@ export default function pbUtilityBars() {
     // this might also include certain event listeners that need to be set up
     // from the first render
     // Chart & svg setup
-    svg = div.append("svg").attr("width", svgWidth).attr("height", svgHeight);
+    svg = div.append('svg').attr('width', svgWidth).attr('height', svgHeight);
     chartWrapper = svg
-      .append("g")
-      .attr("id", "elicitData") // binds #elicitData to the bars
-      .attr("transform", `translate(${margin.left}, ${margin.top})`)
+      .append('g')
+      .attr('id', 'elicitData') // binds #elicitData to the bars
+      .attr('transform', `translate(${margin.left}, ${margin.top})`)
       .call(drag);
 
     //tooltip/warning init
-    tooltip = d3
-      .select("body")
-      .append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
+    tooltip = d3.select('body').append('div').attr('class', 'tooltip').style('opacity', 0);
 
     // if we need to reshape the input data, do it here and store in a global variable
     setXDomain();
@@ -84,25 +82,22 @@ export default function pbUtilityBars() {
 
     // render bars and axes for first time
     let bars = chartWrapper
-      .selectAll("rect")
+      .selectAll('rect')
       .data(data)
-      .join("rect")
-      .attr("x", (d) => xScale(d.Thing))
-      .attr("y", (d) => yScale(d.elicit))
-      .attr("height", (d) => yScale(-0.2) - yScale(d.elicit))
-      .attr("width", xScale.bandwidth());
+      .join('rect')
+      .attr('x', (d) => xScale(d.Thing))
+      .attr('y', (d) => yScale(d.elicit))
+      .attr('height', (d) => yScale(-0.2) - yScale(d.elicit))
+      .attr('width', xScale.bandwidth());
     bars
-      .attr("fill", "steelblue")
-      .on("mouseover", onMouse) //This might be the issue with grabbbing cursor style
-      .on("mouseout", offMouse);
+      .attr('fill', 'steelblue')
+      .on('mouseover', onMouse) //This might be the issue with grabbbing cursor style
+      .on('mouseout', offMouse);
     xAxis = svg
-      .append("g")
-      .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
+      .append('g')
+      .attr('transform', `translate(${margin.left}, ${height + margin.top})`)
       .call(d3.axisBottom(xScale));
-    svg
-      .append("g")
-      .attr("transform", `translate(${margin.left}, ${margin.top})`)
-      .call(d3.axisLeft(yScale));
+    svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`).call(d3.axisLeft(yScale));
 
     //Establishing current position for the posObj (requires domain and scales)
     currentPos(); // does this need to be in chart.render?
@@ -125,22 +120,22 @@ export default function pbUtilityBars() {
       // updateScaleX()
       xAxis.transition(50).call(d3.axisBottom(xScale));
 
-      d3.select("#elicitData")
-        .selectAll("rect")
+      d3.select('#elicitData')
+        .selectAll('rect')
         //.data(data)
         //.join("rect") //Allows for replacement/real time changes
         .transition(50)
-        .attr("x", (d) => xScale(d.Thing)) // doesnt this need to be updating?
-        .attr("y", (d) => yScale(d.elicit))
-        .attr("height", (d) => yScale(-0.2) - yScale(d.elicit))
-        .attr("width", xScale.bandwidth());
+        .attr('x', (d) => xScale(d.Thing)) // doesnt this need to be updating?
+        .attr('y', (d) => yScale(d.elicit))
+        .attr('height', (d) => yScale(-0.2) - yScale(d.elicit))
+        .attr('width', xScale.bandwidth());
 
       // Updates budget Remaining
-      d3.select("#budget")
+      d3.select('#budget')
         .data(getRemaining())
-        .join("text")
+        .join('text')
         .text((d) => `Budget Remaining: $` + d)
-        .style("font-size", "1.5em");
+        .style('font-size', '1.5em');
 
       // may need to bind some event listeners to DOM elements here
       setDragEvents();
@@ -167,9 +162,9 @@ export default function pbUtilityBars() {
         rightEdge = leftEdge + xScale.bandwidth(),
         midpoint = (leftEdge + rightEdge) / 2.0;
 
-      posObj["left"][item] = leftEdge;
-      posObj["right"][item] = rightEdge;
-      posObj["center"][item] = midpoint;
+      posObj['left'][item] = leftEdge;
+      posObj['right'][item] = rightEdge;
+      posObj['center'][item] = midpoint;
     }
   }
 
@@ -177,16 +172,16 @@ export default function pbUtilityBars() {
     // overwrite all reference points for the bar we are dragging
     // effectively giving it a point location in the chartWrapper
     // rather than reference points for left, right, and center
-    posObj["left"][item] = pos;
-    posObj["right"][item] = pos;
-    posObj["center"][item] = pos;
+    posObj['left'][item] = pos;
+    posObj['right'][item] = pos;
+    posObj['center'][item] = pos;
   }
 
   function setDragEvents() {
-    if (dragMode == "allocate") {
-      drag.on("start", dragStart).on("drag", dragging).on("end", dragEnd);
-    } else if (dragMode == "rank") {
-      drag.on("start", rankStart).on("drag", dragRank).on("end", rankEnd);
+    if (dragMode == 'allocate') {
+      drag.on('start', dragStart).on('drag', dragging).on('end', dragEnd);
+    } else if (dragMode == 'rank') {
+      drag.on('start', rankStart).on('drag', dragRank).on('end', rankEnd);
     }
   }
 
@@ -225,29 +220,22 @@ export default function pbUtilityBars() {
     let mousePos = d3.pointer(event, this),
       xBand = clamp(0, data.length, Math.floor(mousePos[0] / xScale.step()));
     (xVal = data[xBand].Thing), //Finds Name of the band
-      (yVal = clamp(
-        0,
-        yScale.domain()[1],
-        Math.floor(yScale.invert(mousePos[1]))
-      )); //Finds scaled Y value
+      (yVal = clamp(0, yScale.domain()[1], Math.floor(yScale.invert(mousePos[1])))); //Finds scaled Y value
 
     //Halting Funciton and Checks
-    if (
-      getRemaining() > 0 ||
-      (getRemaining() <= 0 && yVal < data[xBand].elicit)
-    ) {
+    if (getRemaining() > 0 || (getRemaining() <= 0 && yVal < data[xBand].elicit)) {
       data.find((d) => d.Thing == xVal).elicit = yVal;
 
-      drag.on("drag", dragging);
-      tooltip.transition().duration(100).style("opacity", 0);
+      drag.on('drag', dragging);
+      tooltip.transition().duration(100).style('opacity', 0);
     } else if (getRemaining() <= 0) {
-      tooltip.transition().duration(100).style("opacity", 0.9);
+      tooltip.transition().duration(100).style('opacity', 0.9);
 
       tooltip
-        .html("You have run out of money") //position of warning tooltip, can/will move
+        .html('You have run out of money') //position of warning tooltip, can/will move
         .data(data)
-        .style("left", width / 2 + "px")
-        .style("top", svgHeight + 10 + "px");
+        .style('left', width / 2 + 'px')
+        .style('top', svgHeight + 10 + 'px');
     } //maybe need an else here
     /*
         use a transition
@@ -266,7 +254,7 @@ export default function pbUtilityBars() {
     band = Math.floor(xPos / xScale.step()); //MAYBE CLAMP FOR THE EDGES
     overwritePos(xDomain[band], xPos);
 
-    console.log("start", posObj);
+    console.log('start', posObj);
     console.log(xDomain);
   }
   function dragRank(event, d) {
@@ -274,9 +262,9 @@ export default function pbUtilityBars() {
       posDiff = xPos - posObj[refEdge][xDomain[band]];
     refEdge =
       posDiff > 0.1 // the reference edge is the point on the
-        ? "left" // bar we need to make it past before reordering
+        ? 'left' // bar we need to make it past before reordering
         : posDiff < -0.1
-        ? "right"
+        ? 'right'
         : refEdge;
     // console.log(refEdge);
     overwritePos(xDomain[band], xPos);
@@ -286,25 +274,25 @@ export default function pbUtilityBars() {
     chart.render();
   }
   function rankEnd(event, d) {
-    refEdge = "center";
+    refEdge = 'center';
     currentPos();
     /*
         use a transition
         */
 
     console.log(xScale.domain());
-    console.log("end", posObj);
+    console.log('end', posObj);
     chart.render();
   }
 
   function onMouse(event, d) {
-    d3.select(this).attr("stroke", "black").attr("cursor", "grab");
+    d3.select(this).attr('stroke', 'black').attr('cursor', 'grab');
   }
   function offMouse(event, d) {
-    d3.select(this).attr("stroke", null);
+    d3.select(this).attr('stroke', null);
   }
   function grabbing(event, d) {
-    d3.select(this).attr("cursor", "grabbing");
+    d3.select(this).attr('cursor', 'grabbing');
   }
 
   // getter and setter functions

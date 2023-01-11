@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import {terser} from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
@@ -37,6 +38,8 @@ export default {
     file: 'public/build/bundle.js'
   },
   plugins: [
+    // so rollup can find libraries
+    resolve(),
     // we'll extract any component CSS out into
     // a separate file - better for performance
     css({output: 'bundle.css'}),

@@ -8,7 +8,7 @@ import * as d3 from 'd3';
  *  ...
  *  ...
  */
-export function barChart() {
+export default function barChart() {
   // declare global variables
   // this should include hardcoded constants used across multiple inner functions
   // as well as settings variables with getter/setter functions

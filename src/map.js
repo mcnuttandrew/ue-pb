@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 /* MAP CHART COMPONENT*/
 
 export default function map() {
@@ -9,11 +11,11 @@ export default function map() {
     layout = {
       height: 500,
       width: 800,
-      margin: { top: 15, right: 30, bottom: 35, left: 40 },
+      margin: {top: 15, right: 30, bottom: 35, left: 40}
     },
     wardsSelected = [
-      { ward: "0", color: "#1e90ff" },
-      { ward: "0", color: "#008000" },
+      {ward: '0', color: '#1e90ff'},
+      {ward: '0', color: '#008000'}
     ];
 
   // constructor function
@@ -42,15 +44,13 @@ export default function map() {
 
     // set up scales and axes once data is ready
 
-    svg = div
-      .append("svg")
-      .attr("viewBox", [0, 0, layout["width"], layout["height"]]);
+    svg = div.append('svg').attr('viewBox', [0, 0, layout['width'], layout['height']]);
 
     // Projection
     let projection = d3
       .geoMercator()
       .center([-87.723177, 41.778832])
-      .translate([layout["width"] / 2, layout["height"] / 2])
+      .translate([layout['width'] / 2, layout['height'] / 2])
       .scale(100000);
 
     //Define path generator
@@ -58,16 +58,16 @@ export default function map() {
 
     //Bind data and create one path per GeoJSON feature
     svg
-      .selectAll("path")
+      .selectAll('path')
       .data(data.features)
       .enter()
-      .append("path")
-      .attr("id", (d) => "w" + d.properties.ward)
-      .attr("d", (d) => path(d))
-      .attr("stroke", "dimgray")
-      .attr("fill", "white");
+      .append('path')
+      .attr('id', (d) => 'w' + d.properties.ward)
+      .attr('d', (d) => path(d))
+      .attr('stroke', 'dimgray')
+      .attr('fill', 'white');
 
-    projection.fitSize([layout["width"], layout["height"]], data);
+    projection.fitSize([layout['width'], layout['height']], data);
 
     // call the external-facing render function
     chart.render();
@@ -86,13 +86,13 @@ export default function map() {
       // may need to bind some event listeners to DOM elements here
 
       // First, select all paths and change fill color to white
-      svg.selectAll("path").attr("fill", "white");
+      svg.selectAll('path').attr('fill', 'white');
 
       // console.log("Selected wards", wardsSelected)
 
       wardsSelected.forEach((w) => {
-        if (w.ward != "0") {
-          d3.select("#" + w.ward).attr("fill", w.color);
+        if (w.ward != '0') {
+          d3.select('#' + w.ward).attr('fill', w.color);
         }
       });
     });
@@ -121,14 +121,14 @@ export default function map() {
   };
 
   chart.wardSelectionOne = function (_) {
-    if (!arguments.length) return wardsSelected[0]["ward"];
-    wardsSelected[0]["ward"] = _;
+    if (!arguments.length) return wardsSelected[0]['ward'];
+    wardsSelected[0]['ward'] = _;
     return chart;
   };
 
   chart.wardSelectionTwo = function (_) {
-    if (!arguments.length) return wardsSelected[1]["ward"];
-    wardsSelected[1]["ward"] = _;
+    if (!arguments.length) return wardsSelected[1]['ward'];
+    wardsSelected[1]['ward'] = _;
     return chart;
   };
 
