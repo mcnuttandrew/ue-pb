@@ -29,19 +29,17 @@ export default function barChart() {
 
   // constructor function
   // no need to change this
+  let chartSelection;
   function chart(selection) {
-    this.selection = selection;
-    var that = this;
-    selection.each(function (data, i) {
-      init(data, that);
-    });
+    chartSelection = selection;
+    selection.each((data, i) => init(data));
   }
 
   // initialize the chart
   // this is the first rendering when the component mounts
-  function init(data, that) {
+  function init(data) {
     // assign selection to global variable
-    div = that.selection;
+    div = chartSelection;
 
     // D3 code to render the chart for the first time
     // this should include any legends or fiducial markings that will

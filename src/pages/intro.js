@@ -1,4 +1,4 @@
-function script() {
+function script(state) {
   console.log('hello');
 }
 
