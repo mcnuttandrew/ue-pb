@@ -78,24 +78,24 @@ export default function map() {
     //select ward boundary current boundary, give ids to boundaries, attr with id
 
     // defer rendering until elements from init created
-    var domRendered = $.Deferred();
+    // var domRendered = $.Deferred();
 
     // wait until the DOM is ready so that elements exist
-    $.when(domRendered).done(function () {
-      // D3 code to update the chart
-      // may need to bind some event listeners to DOM elements here
+    // $.when(domRendered).done(function () {
+    // D3 code to update the chart
+    // may need to bind some event listeners to DOM elements here
 
-      // First, select all paths and change fill color to white
-      svg.selectAll('path').attr('fill', 'white');
+    // First, select all paths and change fill color to white
+    svg.selectAll('path').attr('fill', 'white');
 
-      // console.log("Selected wards", wardsSelected)
+    // console.log("Selected wards", wardsSelected)
 
-      wardsSelected.forEach((w) => {
-        if (w.ward != '0') {
-          d3.select('#' + w.ward).attr('fill', w.color);
-        }
-      });
+    wardsSelected.forEach((w) => {
+      if (w.ward != '0') {
+        d3.select('#' + w.ward).attr('fill', w.color);
+      }
     });
+    // });
 
     // now allow inner html for dynamically created elements to render
     domRendered.resolve();

@@ -126,17 +126,15 @@ export default function barChart() {
 
   // this code will re-run each time the chart changes in response to user interactions
   chart.render = function () {
-    // defer rendering until elements from init created
-    var domRendered = $.Deferred();
-
-    // wait until the DOM is ready so that elements exist
-    $.when(domRendered).done(function () {
-      // D3 code to update the chart
-      // may need to bind some event listeners to DOM elements here
-    });
-
-    // now allow inner html for dynamically created elements to render
-    domRendered.resolve();
+    // // defer rendering until elements from init created
+    // // var domRendered = $.Deferred();
+    // // wait until the DOM is ready so that elements exist
+    // $.when(domRendered).done(function () {
+    //   // D3 code to update the chart
+    //   // may need to bind some event listeners to DOM elements here
+    // });
+    // // now allow inner html for dynamically created elements to render
+    // domRendered.resolve();
   };
 
   // helper functions to handle data manipulations and scaling

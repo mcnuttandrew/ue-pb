@@ -18,14 +18,9 @@ function init(state) {
   // create instance of chart component
   let pbUtilBars = pbUtilityBars(data);
 
-  // main:
-  $(document).ready(function () {
-    // make our selection
-
-    // set up chart component, and call
-    pbUtilBars.dragMode('rank'); // initialize in rank mode
-    d3.select('#utility-elicitation').datum(data).call(pbUtilBars);
-  });
+  // set up chart component, and call
+  pbUtilBars.dragMode('rank'); // initialize in rank mode
+  d3.select('#utility-elicitation').datum(data).call(pbUtilBars);
 
   //Temporary switch and different drag
   // make this a callback for toggle input
@@ -155,37 +150,37 @@ function pbUtilityBars(data) {
   // this code will re-run each time the chart changes in response to user interactions
   chart.render = function () {
     // defer rendering until elements from init created
-    var domRendered = $.Deferred();
+    // var domRendered = $.Deferred();
 
     // wait until the DOM is ready so that elements exist
-    $.when(domRendered).done(function () {
-      // D3 code to update the chart
-      // here you want the code that will update the chart during drag events
+    // $.when(domRendered).done(function () {
+    // D3 code to update the chart
+    // here you want the code that will update the chart during drag events
 
-      //update xScale
-      // updateScaleX()
-      xAxis.transition(50).call(d3.axisBottom(xScale));
+    //update xScale
+    // updateScaleX()
+    xAxis.transition(50).call(d3.axisBottom(xScale));
 
-      d3.select('#elicitData')
-        .selectAll('rect')
-        //.data(data)
-        //.join("rect") //Allows for replacement/real time changes
-        .transition(50)
-        .attr('x', (d) => xScale(d.Thing)) // doesnt this need to be updating?
-        .attr('y', (d) => yScale(d.elicit))
-        .attr('height', (d) => yScale(-0.2) - yScale(d.elicit))
-        .attr('width', xScale.bandwidth());
+    d3.select('#elicitData')
+      .selectAll('rect')
+      //.data(data)
+      //.join("rect") //Allows for replacement/real time changes
+      .transition(50)
+      .attr('x', (d) => xScale(d.Thing)) // doesnt this need to be updating?
+      .attr('y', (d) => yScale(d.elicit))
+      .attr('height', (d) => yScale(-0.2) - yScale(d.elicit))
+      .attr('width', xScale.bandwidth());
 
-      // Updates budget Remaining
-      d3.select('#budget')
-        .data(getRemaining())
-        .join('text')
-        .text((d) => `Budget Remaining: $${d}`)
-        .style('font-size', '1.5em');
+    // Updates budget Remaining
+    d3.select('#budget')
+      .data(getRemaining())
+      .join('text')
+      .text((d) => `Budget Remaining: $${d}`)
+      .style('font-size', '1.5em');
 
-      // may need to bind some event listeners to DOM elements here
-      setDragEvents();
-    });
+    // may need to bind some event listeners to DOM elements here
+    setDragEvents();
+    // });
 
     // now allow inner html for dynamically created elements to render
     domRendered.resolve();
