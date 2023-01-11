@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import {set, get} from 'idb-keyval';
 
 // pages
 import intro from './pages/intro';
@@ -29,10 +30,19 @@ window.addEventListener(
 
 // TODO persist state stuff
 
+function getState(key) {
+  return get(key);
+}
+
+function setState(key, value) {
+  return set(key, value);
+}
+
+const state = {getState, setState};
+
 function buildApp() {
   const hash = window.location.hash.replaceAll('#', '');
   const page = pages[hash] || pages.intro;
-  console.log(hash);
   d3.select('#app').html(page.content);
-  page.script();
+  page.script(state);
 }

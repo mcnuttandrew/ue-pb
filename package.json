@@ -3,6 +3,7 @@
   "type": "module",
   "dependencies": {
     "d3": "^7.8.1",
+    "idb-keyval": "^6.2.0",
     "topojson": "^3.0.2"
   },
   "scripts": {
