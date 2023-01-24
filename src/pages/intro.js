@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/page.css">
-    <title>Participatory Budgeting</title>
-</head>
-<body>
+import {getState, setState} from '../state';
+
+function script() {
+  console.log('hello');
+}
+
+const content =
+  /* html */
+  `
+<div>
     <p id="language">English | Español</p>
     <h1>49th Ward Participatory Budgeting</h1>
     <h2>2022 / 2023 cycle</h2>
@@ -32,5 +32,7 @@
     </p>
 
     <h2 id="voting">Voting Period: October 20 - November 30, 2022</h2>
-</body>
-</html>
+</div>
+`;
+
+export default {content, script};
