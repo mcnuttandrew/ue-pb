@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import {set, get} from 'idb-keyval';
+// import './example.css';
 
 // pages
 import intro from './pages/intro';

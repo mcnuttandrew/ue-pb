@@ -4,7 +4,11 @@ import map from '../charts/map';
 import {getState, setState} from '../state';
 
 function initialize() {
-  initialWardData();
+  let data = [];
+
+  initialWardData((newData) => {
+    data = newData;
+  });
   // TODO dropdown 1 / dropdown 2 are not defined.
   // const dropdown1 = document.querySelector('#dropdown-1');
   // dropdown1.addEventListener('change', handleDropdown1);
@@ -34,7 +38,7 @@ function handleDropdown2(e) {
 }
 
 // initialize charts to wards 29 and 35
-function initialWardData() {
+function initialWardData(cb) {
   d3.json('../../data/wards_data.json').then((data) => {
     const ward1Data = data['ward_29'];
     const ward2Data = data['ward_35'];
@@ -47,6 +51,8 @@ function initialWardData() {
         }
       });
     }
+
+    cb(ward1Data);
 
     let raceChart1 = barChart();
     raceChart1.xVar('race');

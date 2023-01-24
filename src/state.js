@@ -1,5 +1,6 @@
 let localState = {};
 
+// getState('wardCount').then(count => {console.log('hi count', count)})
 export function getState(key) {
   if (key in localState) {
     return Promise.resolve(localState[key]);

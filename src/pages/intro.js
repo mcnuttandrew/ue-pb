@@ -1,7 +1,7 @@
 import {getState, setState} from '../state';
 
 function script() {
-  console.log('hello');
+  console.log('hi alex');
 }
 
 const content =
