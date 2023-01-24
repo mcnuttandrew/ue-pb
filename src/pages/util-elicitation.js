@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import {getState, setState} from '../state';
 
-function init() {
+async function init() {
   // data file setup // THIS IS A PLACEHOLDER
   const keys = ['Trees', 'Roads', 'Stadium', 'Apple_Pies'],
     values = [1, 2, 3, 4];

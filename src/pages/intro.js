@@ -1,6 +1,6 @@
 import {getState, setState} from '../state';
 
-function script() {
+async function script() {
   console.log('hi alex');
 }
 

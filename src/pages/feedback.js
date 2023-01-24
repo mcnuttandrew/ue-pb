@@ -3,7 +3,7 @@ import barChart from '../charts/bar-chart';
 import map from '../charts/map';
 import {getState, setState} from '../state';
 
-function initialize() {
+async function initialize() {
   let data = [];
 
   initialWardData((newData) => {

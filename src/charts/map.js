@@ -98,7 +98,7 @@ export default function map() {
     // });
 
     // now allow inner html for dynamically created elements to render
-    domRendered.resolve();
+    // domRendered.resolve();
   };
 
   // helper functions to handle data manipulations and scaling
