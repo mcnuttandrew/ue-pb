@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
+import {getState, setState} from '../state';
 
-function init(state) {
+function init() {
   // data file setup // THIS IS A PLACEHOLDER
   const keys = ['Trees', 'Roads', 'Stadium', 'Apple_Pies'],
     values = [1, 2, 3, 4];
@@ -183,7 +184,7 @@ function pbUtilityBars(data) {
     // });
 
     // now allow inner html for dynamically created elements to render
-    domRendered.resolve();
+    // domRendered.resolve();
   };
 
   // helper functions to handle data manipulations and scaling

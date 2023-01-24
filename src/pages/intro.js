@@ -1,4 +1,6 @@
-function script(state) {
+import {getState, setState} from '../state';
+
+function script() {
   console.log('hello');
 }
 

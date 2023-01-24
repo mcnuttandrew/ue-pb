@@ -1,8 +1,9 @@
 import * as d3 from 'd3';
 import barChart from '../charts/bar-chart';
 import map from '../charts/map';
+import {getState, setState} from '../state';
 
-function initialize(state) {
+function initialize() {
   initialWardData();
   // TODO dropdown 1 / dropdown 2 are not defined.
   // const dropdown1 = document.querySelector('#dropdown-1');
