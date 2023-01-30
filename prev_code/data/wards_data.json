@@ -1,0 +1,577 @@
+{
+    "ward_29": [
+        {"race": "White",
+        "count": 9894},
+
+        {"race": "Black",
+        "count": 36857},
+
+        {"race": "Asian",
+        "count": 636},
+
+        {"race": "Latino",
+        "count": 10010},
+
+        {"race": "Other",
+        "count": 463},
+
+        {"race-sample": "White",
+        "count-sample": 495},
+
+        {"race-sample": "Black",
+        "count-sample": 1843},
+
+        {"race-sample": "Asian",
+        "count": 32},
+
+        {"race-sample": "Latino",
+        "count-sample": 500},
+
+        {"race-sample": "Other",
+        "count": 23},
+
+        {"income": "< $10,000",
+        "count": 7522
+        },
+
+        {"income": "$10,000-24,999",
+        "count": 12729
+        },
+
+        {"income": "$25,000-39,999",
+        "count": 10993
+        },
+
+        {"income": "$40,000-59,999",
+        "count": 8679
+        },
+
+        {"income": "$60,000-99,999",
+        "count": 9836
+        },
+
+        {"income": "$100,000-149,999",
+        "count": 5786
+        },
+
+        {"income": "> $150,000",
+        "count": 2314
+        },
+
+        {"income-sample": "< $10,000",
+        "count-sample": 376
+        },
+
+        {"income-sample": "$10,000-24,999",
+        "count-sample": 636
+        },
+
+        {"income-sample": "$25,000-39,999",
+        "count-sample": 550
+        },
+
+        {"income-sample": "$40,000-59,999",
+        "count-sample": 434
+        },
+
+        {"income-sample": "$60,000-99,999",
+        "count-sample": 492
+        },
+
+        {"income-sample": "$100,000-149,999",
+        "count-sample": 289
+        },
+
+        {"income-sample": "> $150,000",
+        "count-sample": 116
+        },
+
+        {"education": "Less than high school",
+        "count": 11341
+        },
+
+        {"education": "High school",
+        "count": 19904
+        },
+
+        {"education": "Some college",
+        "count": 16837
+        },
+
+        {"education": "Professional school",
+        "count": 405
+        },
+
+        {"education": "Bachelor",
+        "count": 6191
+        },
+
+        {"education": "Master",
+        "count": 3124
+        },
+
+        {"education": "Doctorate",
+        "count": 58
+        },
+
+        {"education-sample": "Less than high school",
+        "count-sample": 567
+        },
+
+        {"education-sample": "High school",
+        "count-sample": 995
+        },
+
+        {"education-sample": "Some college",
+        "count-sample": 842
+        },
+
+        {"education-sample": "Professional school",
+        "count-sample": 20
+        },
+
+        {"education-sample": "Bachelor",
+        "count-sample": 310
+        },
+
+        {"education-sample": "Master",
+        "count-sample": 156
+        },
+
+        {"education-sample": "Doctorate",
+        "count-sample": 3
+        }
+   ],
+   "ward_35": [
+    {"race": "White",
+    "count": 11182},
+
+    {"race": "Black",
+    "count": 1872},
+
+    {"race": "Asian",
+    "count": 2913},
+
+    {"race": "Latino",
+    "count": 35314},
+
+    {"race": "Other",
+    "count": 728},
+
+    {"race-sample": "White",
+    "count-sample": 671},
+
+    {"race-sample": "Black",
+    "count-sample": 112},
+
+    {"race-sample": "Asian",
+    "count": 175},
+
+    {"race-sample": "Latino",
+    "count-sample":2119 },
+
+    {"race-sample": "Other",
+    "count": 44},
+
+    {"income": "< $10,000",
+    "count": 4161
+    },
+
+    {"income": "$10,000-24,999",
+    "count": 9882
+    },
+
+    {"income": "$25,000-39,999",
+    "count": 9362
+    },
+
+    {"income": "$40,000-59,999",
+    "count": 9362
+    },
+
+    {"income": "$60,000-99,999",
+    "count": 10922
+    },
+
+    {"income": "$100,000-149,999",
+    "count": 5721
+    },
+
+    {"income": "> $150,000",
+    "count": 3121
+    },
+
+    {"income-sample": "< $10,000",
+    "count-sample": 250
+    },
+
+    {"income-sample": "$10,000-24,999",
+    "count-sample": 593
+    },
+
+    {"income-sample": "$25,000-39,999",
+    "count-sample": 562
+    },
+
+    {"income-sample": "$40,000-59,999",
+    "count-sample": 562
+    },
+
+    {"income-sample": "$60,000-99,999",
+    "count-sample": 655
+    },
+
+    {"income-sample": "$100,000-149,999",
+    "count-sample": 343
+    },
+
+    {"income-sample": "> $150,000",
+    "count-sample": 187
+    },
+
+    {"education": "Less than high school",
+    "count": 15447
+    },
+
+    {"education": "High school",
+    "count": 13054
+    },
+
+    {"education": "Some college",
+    "count": 10610
+    },
+
+    {"education": "Professional school",
+    "count": 572
+    },
+
+    {"education": "Bachelor",
+    "count": 9154
+    },
+
+    {"education": "Master",
+    "count": 2965
+    },
+
+    {"education": "Doctorate",
+    "count": 208
+    },
+
+    {"education-sample": "Less than high school",
+    "count-sample": 927
+    },
+
+    {"education-sample": "High school",
+    "count": 783
+    },
+
+    {"education-sample": "Some college",
+    "count-sample": 637
+    },
+
+    {"education-sample": "Professional school",
+    "count-sample": 34
+    },
+
+    {"education-sample": "Bachelor",
+    "count-sample": 264
+    },
+
+    {"education-sample": "Master",
+    "count-sample": 178
+    },
+
+    {"education-sample": "Doctorate",
+    "count-sample": 12
+    }
+],
+   "ward_36": [
+    {"race": "White",
+    "count": 12995},
+
+    {"race": "Black",
+    "count": 1605},
+
+    {"race": "Asian",
+    "count": 1294},
+
+    {"race": "Latino",
+    "count": 35463},
+
+    {"race": "Other",
+    "count": 414},
+
+    {"race-sample": "White",
+    "count-sample": 650 },
+
+    {"race-sample": "Black",
+    "count-sample": 80},
+
+    {"race-sample": "Asian",
+    "count": 65},
+
+    {"race-sample": "Latino",
+    "count-sample": 1773},
+
+    {"race-sample": "Other",
+    "count": 21},
+
+    {"income": "< $10,000",
+    "count": 3106
+    },
+
+    {"income": "$10,000-24,999",
+    "count": 8801
+    },
+
+    {"income": "$25,000-39,999",
+    "count": 10354
+    },
+
+    {"income": "$40,000-59,999",
+    "count": 10354
+    },
+
+    {"income": "$60,000-99,999",
+    "count": 10354
+    },
+
+    {"income": "$100,000-149,999",
+    "count": 6213
+    },
+
+    {"income": "> $150,000",
+    "count": 2589
+    },
+
+    {"income-sample": "< $10,000",
+    "count-sample": 155
+    },
+
+    {"income-sample": "$10,000-24,999",
+    "count-sample": 440
+    },
+
+    {"income-sample": "$25,000-39,999",
+    "count-sample": 518
+    },
+
+    {"income-sample": "$40,000-59,999",
+    "count-sample": 518
+    },
+
+    {"income-sample": "$60,000-99,999",
+    "count-sample": 518
+    },
+
+    {"income-sample": "$100,000-149,999",
+    "count-sample": 311
+    },
+
+    {"income-sample": "> $150,000",
+    "count-sample": 129
+    },
+
+    {"education": "Less than high school",
+    "count": 16463
+    },
+
+    {"education": "High school",
+    "count": 311
+    },
+
+    {"education": "Some college",
+    "count": 11856
+    },
+
+    {"education": "Professional school",
+    "count": 259
+    },
+
+    {"education": "Bachelor",
+    "count": 5281
+    },
+
+    {"education": "Master",
+    "count": 1967
+    },
+
+    {"education": "Doctorate",
+    "count": 311
+    },
+
+    {"education-sample": "Less than high school",
+    "count-sample": 823
+    },
+
+    {"education-sample": "High school",
+    "count": 784
+    },
+
+    {"education-sample": "Some college",
+    "count-sample": 593
+    },
+
+    {"education-sample": "Professional school",
+    "count-sample": 13
+    },
+
+    {"education-sample": "Bachelor",
+    "count-sample": 264
+    },
+
+    {"education-sample": "Master",
+    "count-sample": 98
+    },
+
+    {"education-sample": "Doctorate",
+    "count-sample": 16
+    }
+
+    
+]
+,
+   "ward_49": [
+    {"race": "White",
+    "count": 21968},
+
+    {"race": "Black",
+    "count": 13277},
+
+    {"race": "Asian",
+    "count": 3892},
+
+    {"race": "Latino",
+    "count": 12477},
+
+    {"race": "Other",
+    "count": 1706},
+
+    {"race-sample": "White",
+    "count-sample": 1538},
+
+    {"race-sample": "Black",
+    "count-sample": 929},
+
+    {"race-sample": "Asian",
+    "count": 272},
+
+    {"race-sample": "Latino",
+    "count-sample": 873},
+
+    {"race-sample": "Other",
+    "count": 119},
+
+    {"income": "< $10,000",
+    "count": 6932
+    },
+
+    {"income": "$10,000-24,999",
+    "count": 11731
+    },
+
+    {"income": "$25,000-39,999",
+    "count": 9598
+    },
+
+    {"income": "$40,000-59,999",
+    "count": 8531
+    },
+
+    {"income": "$60,000-99,999",
+    "count": 9598
+    },
+
+    {"income": "$100,000-149,999",
+    "count": 4266
+    },
+
+    {"income": "> $150,000",
+    "count": 2666
+    },
+
+    {"income-sample": "< $10,000",
+    "count-sample": 485
+    },
+
+    {"income-sample": "$10,000-24,999",
+    "count-sample": 821
+    },
+
+    {"income-sample": "$25,000-39,999",
+    "count-sample": 672
+    },
+
+    {"income-sample": "$40,000-59,999",
+    "count-sample": 597
+    },
+
+    {"income-sample": "$60,000-99,999",
+    "count-sample": 672
+    },
+
+    {"income-sample": "$100,000-149,999",
+    "count-sample": 299
+    },
+
+    {"income-sample": "> $150,000",
+    "count-sample": 187
+    },
+
+    {"education": "Less than high school",
+    "count": 8371
+    },
+
+    {"education": "High school",
+    "count": 10131
+    },
+
+    {"education": "Some college",
+    "count": 12584
+    },
+
+    {"education": "Professional school",
+    "count": 1226
+    },
+
+    {"education": "Bachelor",
+    "count": 13384
+    },
+
+    {"education": "Master",
+    "count": 6558
+    },
+
+    {"education": "Doctorate",
+    "count": 1066
+    },
+
+    {"education-sample": "Less than high school",
+    "count-sample": 586
+    },
+
+    {"education-sample": "High school",
+    "count": 709
+    },
+
+    {"education-sample": "Some college",
+    "count-sample": 881
+    },
+
+    {"education-sample": "Professional school",
+    "count-sample": 86
+    },
+
+    {"education-sample": "Bachelor",
+    "count-sample": 937
+    },
+
+    {"education-sample": "Master",
+    "count-sample": 459
+    },
+
+    {"education-sample": "Doctorate",
+    "count-sample": 75
+    }
+]
+ }
