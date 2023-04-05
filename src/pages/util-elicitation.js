@@ -141,6 +141,31 @@ function pbUtilityBars(data) {
       .call(d3.axisBottom(xScale));
     svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`).call(d3.axisLeft(yScale));
 
+    let infoTooltip = d3
+      .select('body')
+      .append('div')
+      .style('position', 'absolute')
+      .style('pointer-events', 'none');
+
+    let hoverTarget = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`);
+    hoverTarget
+      .selectAll('rect')
+      .data(xScale.domain())
+      .join('rect')
+      .attr('fill', 'red')
+      .attr('x', (d) => xScale(d))
+      .attr('height', 20)
+      .attr('y', yScale.range().at(0))
+      .attr('width', xScale.bandwidth())
+      .on('mousemove', function (e, dataValue) {
+        infoTooltip.style('display', 'block');
+        infoTooltip.style('top', `${e.pageY}px`);
+        infoTooltip.style('left', `${e.pageX}px`);
+        infoTooltip.text(`Here is an example of using this tooltip for this ${dataValue}`);
+      })
+      .on('mouseout', () => {
+        infoTooltip.style('display', 'none');
+      });
     //Establishing current position for the posObj (requires domain and scales)
     currentPos(); // does this need to be in chart.render?
 
